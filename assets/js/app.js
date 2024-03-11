@@ -3,12 +3,23 @@
 const { createApp } = Vue
 
 createApp({
-  //Options object - Data
-  data() {
-    return {
-      //E' una proprietà ma diventa una variabile per il nostro DOM
-      message: 'Hello Vue! Sembra molto più comodo del solo JS',
-      img: "./assets/img/lago.jpg",
+    //Options object - Data
+    data() {
+        return {
+            //E' una proprietà ma diventa una variabile per il nostro DOM
+            message: 'Hello Vue!',
+            img: "./assets/img/lago.jpg",
+            mytext: "Modifica la text area",
+            selected: [],
+        }
+    },
+    // Methods
+    /*   Il cui valore è un oggetto in cui
+        potremo inserire tutte le funzioni che ci
+        serviranno all'interno del nostro codice   */
+    methods: {
+        greetings: function () {
+            console.log("Ciaooooo");
+        },
     }
-  },
 }).mount('#app')
