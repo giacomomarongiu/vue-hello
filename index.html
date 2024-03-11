@@ -108,9 +108,16 @@
             <!--Utilizzo once direttamente qui-->
             <input v-model="wantoToPrint">
             <button @click.once="say(wantoToPrint)">Say what you write</button>
+            <br><br><hr>
         </div>
 
-        
+        <!-- b-bind Ulteriori esempi-->
+        <div id="v-bind">
+            <br>
+            <div :style="{ color: activeColor, fontSize: fontSize + 'px' }">
+                Questa è una prova di stile
+            </div>
+        </div>
 
     </div>
 

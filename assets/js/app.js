@@ -14,6 +14,8 @@ createApp({
             count: 0,
             imgTwo: "./assets/img/montagna.jpg",
             wantoToPrint:"",
+            activeColor: 'red',
+            fontSize: 20,
         }
     },
     // Methods
