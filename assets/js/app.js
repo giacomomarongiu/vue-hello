@@ -9,8 +9,10 @@ createApp({
             //E' una proprietà ma diventa una variabile per il nostro DOM
             message: 'Hello Vue!',
             img: "./assets/img/lago.jpg",
-            mytext: "Modifica la text area",
+            mytext: "Stampa la text area",
             selected: [],
+            count: 0,
+            imgTwo: "./assets/img/montagna.jpg",
         }
     },
     // Methods
@@ -21,5 +23,12 @@ createApp({
         greetings: function () {
             console.log("Ciaooooo");
         },
+        //Funzione che mi permette di cambiare immagine
+        changeImg: function(){
+            if (this.img===this.imgTwo){
+                this.img="./assets/img/lago.jpg";
+            } else 
+            this.img=this.imgTwo
+        }
     }
 }).mount('#app')
