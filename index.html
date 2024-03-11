@@ -20,56 +20,97 @@
         <img v-bind:src="img">
         <!-- Sintassi alternativa: <img :src="img"> -->
 
+        <hr>
+        <hr>
 
 
         <!--Oltre l'esercizio, miei tentativi personali-->
-        <div>
+
+        <!-- v-model tiene costantemente monitorato il valore di message
+                e lo cambia anche nell'h1 se dovessi modificarlo input-->
+        <div id="v-model">
+            <div></div>
+            <p>Modifico il titolo e conto i caratteri della stringa:</p>
             <!-- v-model tiene costantemente monitorato il valore di message
                 e lo cambia anche nell'h1 se dovessi modificarlo input-->
             <input v-model="message">
             <!--Essendo message un oggetto posso utilizzare tutte le proprietà di Js-->
             <!--Tengo monitorata costantemente la lunghezza della stringa-->
             <p>Stringa di message lunga: {{message.length}}</p>
+            <hr>
 
             <!--La textarea funziona con v-model-->
+            <p>Stampo la text area:</p>
             <div><textarea v-model="mytext" cols="10" rows="2"></textarea>
-                <p>{{mytext}}</p>
+                <p>QUI: {{mytext}}</p>
             </div>
+            <hr>
 
             <!-- v-model on selecet-->
             <!--Visualizzo facilemente la selezione-->
+            <p>Modifico dinamicamente il valore del select:</p>
             <div>Selected: {{ selected }}</div>
+            <br>
             <select v-model.number="selected" multiple>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
             </select>
-
-
-            <!-- v-on per chiamare eventi dopo determinati stimoli-->
-            <div>
-                <br>
-                <button @click="greetings">Stampa Ciao in Console</button><br>
-                <!--Alternativa:
-                    <button v-on:click="greetings">Stampa Ciao in Console</button><br>
-                -->
-                <br>
-
-                <!-- Possiamo far eseguire del codice js scrivendolo sul DOM-->
-                <button v-on:click="count++">Add 1 on counter</button>
-                <div>My counter is: {{count}}</div>
-                <br>
-
-                <!--Provo a cambire l'immagie al click di un bottone-->
-                <!--Chiamo una funzione che al click stampa l'altra immagine e viceversa-->
-                <!--Potrebbe facilitare parecchio lo slider-->
-                <br> <button v-on:click="changeImg">CAMBIA IMMAGINE</button>
-
-                
-            </div>
-
+            <hr>
 
         </div>
+
+        <!-- v-on per chiamare eventi dopo determinati stimoli-->
+        <div id="v-on">
+            <p>Nomen omen:</p>
+            <button @click="greetings">Stampa Ciao in Console</button><br>
+            <!--Alternativa:
+                            <button v-on:click="greetings">Stampa Ciao in Console</button><br>
+                        -->
+            <br>
+            <hr>
+
+
+            <!-- Possiamo far eseguire del codice js scrivendolo sul DOM-->
+            <br>
+            <p>Nomen omen:</p>
+            <button v-on:click="count++">Add 1 on counter</button>
+            <div>My counter is: {{count}}</div>
+            <br>
+
+
+            <!--Provo a cambire l'immagie al click di un bottone-->
+            <!--Chiamo una funzione che al click stampa l'altra immagine e viceversa-->
+            <hr>
+            <br>
+            <p>Cambio l'immagine di sopra:</p>
+            <button v-on:click="changeImg">CAMBIA IMMAGINE</button>
+            <br>
+            <br>
+            <hr>
+
+
+            <!--Possiamo anche passare degli argomenti ai nostri metodi-->
+            <br>
+            <p>Chiamo una funzione passando una stringa</p>
+            <button @click="say('what')">Say what</button><br>
+            <br>
+            <hr>
+            <!--Con v-model modifico in tempo reale wanttoprint-->
+            <p>Chiamo una funzione passando una variabile modificata con l'input</p>
+            <input v-model="wantoToPrint">
+            <!--Al click passo come parametro della funzione il valore modificato-->
+            <button @click="say(wantoToPrint)">Say what you write</button>
+            <br><br>
+            <hr>
+            <!--Posso aggiungere una serie di metodi comuni direttamente qui-->
+            <p>Stessa cosa ma cliccabile sol un volta:</p>
+            <!--Utilizzo once direttamente qui-->
+            <input v-model="wantoToPrint">
+            <button @click.once="say(wantoToPrint)">Say what you write</button>
+        </div>
+
+        
 
     </div>
 
